@@ -52,7 +52,7 @@ sed -i "s/project_endpoint_to-be-replaced/${projectEndpoint}/g" "01_create_agent
 
 agentId=$(python 01_create_agents.py)
 
-echo "agent creation completed successfully."
+# echo "agent creation completed successfully."
 
 #IMPORTANT: write outputs for Bicep here
 

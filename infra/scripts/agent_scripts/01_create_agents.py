@@ -43,4 +43,4 @@ with project_client:
         name="my-agent1",
         instructions=instructions
     )
-    print(f"Created Agent, ID: {agent.id}")
+    print(agent.id)
