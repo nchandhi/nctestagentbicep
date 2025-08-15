@@ -57,4 +57,4 @@ echo "agent creation completed successfully."
 # } >> "$AZ_SCRIPTS_OUTPUT_PATH"
 
 
-printf 'kvname=%s\n' "$keyvaultNam" >> "$AZ_SCRIPTS_OUTPUT_PATH"
+printf 'kvname=%s\n' "$keyvaultName" >> "$AZ_SCRIPTS_OUTPUT_PATH"
