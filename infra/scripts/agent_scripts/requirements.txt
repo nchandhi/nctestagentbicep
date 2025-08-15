@@ -14,6 +14,4 @@
 # # graphrag==0.3.6
 
 azure-identity
-pyodbc==5.2.0
 azure-ai-projects
-azure-ai-agents==1.1.0b4

@@ -116,6 +116,7 @@ module createIndex 'run_agent_scripts.bicep' = {
     managedIdentityClientId:managedIdentityModule.outputs.managedIdentityOutput.clientId
     baseUrl:baseUrl
     keyVaultName:aifoundry.outputs.keyvaultName
+    projectEndpoint: aifoundry.outputs.projectEndpoint
   }
 }
 

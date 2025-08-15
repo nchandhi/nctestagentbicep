@@ -5,6 +5,7 @@ echo "Started the index script setup..."
 baseUrl="$1"
 keyvaultName="$2"
 managedIdentityClientId="$3"
+projectEndpoint="$4"
 requirementFile="requirements.txt"
 requirementFileUrl="${baseUrl}infra/scripts/agent_scripts/requirements.txt"
 
@@ -23,18 +24,19 @@ requirementFileUrl="${baseUrl}infra/scripts/agent_scripts/requirements.txt"
 
 # # Step 2: Download index scripts
 # echo "Downloading index scripts..."
-# curl --output "01_create_search_index.py" "${baseUrl}infra/scripts/index_scripts/01_create_agents.py"
+curl --output "01_create_agents.py" "${baseUrl}infra/scripts/index_scripts/01_create_agents.py"
 
 # # Step 3: Download and install Python requirements
 # echo "Installing Python requirements..."
-# curl --output "$requirementFile" "$requirementFileUrl"
-# pip install --upgrade pip
-# pip install -r "$requirementFile"
+curl --output "$requirementFile" "$requirementFileUrl"
+pip install --upgrade pip
+pip install -r "$requirementFile"
 
 # # Step 4: Replace placeholder values with actuals
 # echo "Substituting key vault and identity details..."
 # #Replace key vault name 
-# sed -i "s/kv_to-be-replaced/${keyvaultName}/g" "01_create_search_index.py"
+sed -i "s/kv_to-be-replaced/${keyvaultName}/g" "01_create_agents.py"
+sed -i "s/project_endpoint_to-be-replaced/${projectEndpoint}/g" "01_create_agents.py"
 # sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "01_create_search_index.py"
 # sed -i "s/kv_to-be-replaced/${keyvaultName}/g" "02_create_cu_template_text.py"
 # sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "02_create_cu_template_text.py"
@@ -48,15 +50,10 @@ requirementFileUrl="${baseUrl}infra/scripts/agent_scripts/requirements.txt"
 # echo "Running Python index scripts..."
 # python 01_create_agents.py
 
+agentId=$(python 01_create_agents.py)
+
 echo "agent creation completed successfully."
 
-# # IMPORTANT: write outputs for Bicep here
-# {
-#   echo "copyStatus=success"
-#   echo "filesCopied=$keyvaultName"
-# } >> "$AZ_SCRIPTS_OUTPUT_PATH"
+#IMPORTANT: write outputs for Bicep here
 
-
-# printf 'kvname=%s\n' "$keyvaultName" >> "$AZ_SCRIPTS_OUTPUT_PATH"
-
-printf '{"kvname":"%s"}' "$keyvaultName" > "$AZ_SCRIPTS_OUTPUT_PATH"
+printf '{"agentId":"%s"}' "$agentId" > "$AZ_SCRIPTS_OUTPUT_PATH"
