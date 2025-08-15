@@ -24,12 +24,12 @@ requirementFileUrl="${baseUrl}infra/scripts/agent_scripts/requirements.txt"
 
 # # Step 2: Download index scripts
 # echo "Downloading index scripts..."
-curl --output "01_create_agents.py" "${baseUrl}infra/scripts/index_scripts/01_create_agents.py"
+curl --output "01_create_agents.py" "${baseUrl}infra/scripts/agent_scripts/01_create_agents.py"
 
 # # Step 3: Download and install Python requirements
 # echo "Installing Python requirements..."
 curl --output "$requirementFile" "$requirementFileUrl"
-pip install --upgrade pip
+# pip install --upgrade pip
 pip install -r "$requirementFile"
 
 # # Step 4: Replace placeholder values with actuals
