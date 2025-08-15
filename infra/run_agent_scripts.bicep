@@ -26,5 +26,5 @@ resource create_index 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   }
 }
 
-// Read the value your script writes as "copyStatus" (name it whatever you like)
-output copyStatus string = create_index.properties.outputs.copyStatus
+// Read the value your script writes to the output file
+output kvname string = create_index.properties.outputs.kvname

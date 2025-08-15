@@ -50,8 +50,11 @@ requirementFileUrl="${baseUrl}infra/scripts/agent_scripts/requirements.txt"
 
 echo "agent creation completed successfully."
 
-# IMPORTANT: write outputs for Bicep here
-{
-  echo "copyStatus=success"
-  echo "filesCopied=$keyvaultName"
-} >> "$AZ_SCRIPTS_OUTPUT_PATH"
+# # IMPORTANT: write outputs for Bicep here
+# {
+#   echo "copyStatus=success"
+#   echo "filesCopied=$keyvaultName"
+# } >> "$AZ_SCRIPTS_OUTPUT_PATH"
+
+
+printf 'kvname=%s\n' "$keyvaultNam" >> "$AZ_SCRIPTS_OUTPUT_PATH"
