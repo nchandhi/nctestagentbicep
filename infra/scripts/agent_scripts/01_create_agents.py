@@ -124,3 +124,57 @@
 # create_search_index()
 
 print('hello world')
+
+
+
+# import os
+# from azure.ai.projects import AIProjectClient
+# from azure.identity import DefaultAzureCredential
+# from azure.ai.agents.models import FabricTool, ListSortOrder
+
+
+# # Initialize the AI project client
+# project_client = AIProjectClient(
+#     endpoint= "https://fabricsql1-resource.services.ai.azure.com/api/projects/fabricsql1", #os.environ["PROJECT_ENDPOINT"],
+#     credential=DefaultAzureCredential(),
+# )
+
+
+# for connection in project_client.connections.list():
+#     if connection.metadata['type'] == 'fabric_dataagent':
+#         conn_id = connection.id
+#         # print(f"Found Fabric connection: {conn_id}")
+#         break
+#     # print(connection.id)
+# # Initialize agent Fabric tool and add the connection ID
+# fabric = FabricTool(connection_id=conn_id)
+
+
+# instructions='''- Purpose: Analyze customer information.
+#                 - Use this to highlight customer details.
+#                 - ✅ Example queries the Fabric tool can answer:
+#                     - What is the total number of customers?
+#                     - how many sales orders?
+#                     - How many products?'''
+# with project_client:
+#     agents_client = project_client.agents
+#     agent = agents_client.create_agent(
+#         model='gpt-4o-mini',
+#         name="my-fabric-agent",
+#         instructions=instructions,
+#         tools=fabric.definitions,
+#     )
+#     print(f"Created Agent, ID: {agent.id}")
+
+
+# # Create a thread for communication
+#     thread = project_client.agents.threads.create()
+#     print(f"Created thread, ID: {thread.id}")
+
+#     # Create a message in the thread
+#     message = project_client.agents.messages.create(
+#         thread_id=thread.id,
+#         role="user",  # Role of the message sender
+#         content="How many customers are there?",  # Message content
+#     )
+#     print(f"Created message, ID: {message['id']}")
