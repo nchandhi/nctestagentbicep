@@ -29,7 +29,7 @@ curl --output "01_create_agents.py" "${baseUrl}infra/scripts/agent_scripts/01_cr
 # # Step 3: Download and install Python requirements
 # echo "Installing Python requirements..."
 curl --output "$requirementFile" "$requirementFileUrl"
-# pip install --upgrade pip
+pip install --upgrade pip
 pip install -r "$requirementFile"
 
 # # Step 4: Replace placeholder values with actuals
@@ -50,7 +50,7 @@ sed -i "s/project_endpoint_to-be-replaced/${projectEndpoint}/g" "01_create_agent
 # echo "Running Python index scripts..."
 # python 01_create_agents.py
 
-agentId=$(python 01_create_agents.py)
+agentId=$(python3 01_create_agents.py)
 
 # echo "agent creation completed successfully."
 
