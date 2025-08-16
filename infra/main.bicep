@@ -108,7 +108,7 @@ module aifoundry 'deploy_ai_foundry.bicep' = {
 }
 
 //========== Deployment script to process and index data ========== //
-module createIndex 'run_agent_scripts.bicep' = {
+module createAgent 'run_agent_scripts.bicep' = {
   name : 'run_agent_scripts'
   params:{
     solutionLocation: solutionLocation

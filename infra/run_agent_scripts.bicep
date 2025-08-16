@@ -7,7 +7,7 @@ param managedIdentityResourceId string
 param managedIdentityClientId string
 param projectEndpoint string
 
-resource create_index 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+resource create_agent 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   kind:'AzureCLI'
   name: 'run_agent_scripts'
   location: solutionLocation
@@ -28,4 +28,4 @@ resource create_index 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 
 // Read the value your script writes to the output file
-output agentId string = create_index.properties.outputs.agentId
+output agentId string = create_agent.properties.outputs.agentId
