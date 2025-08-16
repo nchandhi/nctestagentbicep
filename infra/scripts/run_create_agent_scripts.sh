@@ -58,4 +58,4 @@ python 01_create_agents.py
 # #IMPORTANT: write outputs for Bicep here
 # agentId='12345678'  # Placeholder for actual agent ID
 # printf '{"agentId":"%s"}' "$agentId" > "$AZ_SCRIPTS_OUTPUT_PATH"
-printf '{"agentId":"%s"}' "123456" > "$AZ_SCRIPTS_OUTPUT_PATH"
+printf '{"agentId":"%s"}' "$keyvaultName" > "$AZ_SCRIPTS_OUTPUT_PATH"
