@@ -47,7 +47,7 @@ sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "01_create_agents.py
 
 
 # # Step 5: Execute the Python scripts
-# echo "Running Python index scripts..."
+echo "Running Python agent scripts..."
 python 01_create_agents.py
 
 # agentId=$(python3 01_create_agents.py)
