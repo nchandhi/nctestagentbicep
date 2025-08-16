@@ -26,4 +26,4 @@ with project_client:
         instructions=instructions
     )
     print(agent.id)
-print('12345678')    
+print('12345678')

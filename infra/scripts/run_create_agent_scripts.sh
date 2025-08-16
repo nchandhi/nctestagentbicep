@@ -23,7 +23,7 @@ requirementFileUrl="${baseUrl}infra/scripts/agent_scripts/requirements.txt"
 # # apk add --allow-untrusted mssql-tools_17.10.1.1-1_amd64.apk
 
 # # Step 2: Download index scripts
-# echo "Downloading index scripts..."
+echo "Downloading python scripts..."
 curl --output "01_create_agents.py" "${baseUrl}infra/scripts/agent_scripts/01_create_agents.py"
 
 # # Step 3: Download and install Python requirements
