@@ -49,14 +49,13 @@ sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "01_create_agents.py
 
 # # Step 5: Execute the Python scripts
 echo "Running Python agent scripts..."
-python 01_create_agents.py
+# python 01_create_agents.py
 
-# agentId=$(python3 01_create_agents.py)
-
+agentId=$(python 01_create_agents.py)
 
 # # echo "agent creation completed successfully."
 
 # #IMPORTANT: write outputs for Bicep here
 # agentId='12345678'  # Placeholder for actual agent ID
 # printf '{"agentId":"%s"}' "$agentId" > "$AZ_SCRIPTS_OUTPUT_PATH"
-printf '{"agentId":"%s"}' "$keyvaultName" > "$AZ_SCRIPTS_OUTPUT_PATH"
+printf '{"agentId":"%s"}' "$agentId" > "$AZ_SCRIPTS_OUTPUT_PATH"
