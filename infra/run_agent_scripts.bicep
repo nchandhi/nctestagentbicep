@@ -24,6 +24,7 @@ resource create_agent 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     timeout: 'PT1H'
     retentionInterval: 'PT1H'
     // cleanupPreference:'OnSuccess'
+    cleanupPreference: 'OnExpiration'
   }
 }
 
