@@ -23,10 +23,8 @@ resource create_agent 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     arguments: '${baseUrl} ${keyVaultName} ${managedIdentityClientId} ${projectEndpoint}'
     timeout: 'PT1H'
     retentionInterval: 'PT1H'
-    // cleanupPreference:'OnSuccess'
-    cleanupPreference: 'OnExpiration'
+    cleanupPreference:'OnSuccess'
   }
 }
 
-// Read the value your script writes to the output file
 output agentId string = create_agent.properties.outputs.agentId
