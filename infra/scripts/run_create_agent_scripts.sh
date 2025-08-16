@@ -37,7 +37,7 @@ pip install -r "$requirementFile"
 # #Replace key vault name 
 sed -i "s/kv_to-be-replaced/${keyvaultName}/g" "01_create_agents.py"
 sed -i "s/project_endpoint_to-be-replaced/${projectEndpoint}/g" "01_create_agents.py"
-# sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "01_create_search_index.py"
+sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "01_create_agents.py"
 # sed -i "s/kv_to-be-replaced/${keyvaultName}/g" "02_create_cu_template_text.py"
 # sed -i "s/mici_to-be-replaced/${managedIdentityClientId}/g" "02_create_cu_template_text.py"
 # sed -i "s/kv_to-be-replaced/${keyvaultName}/g" "02_create_cu_template_audio.py"

@@ -1,14 +1,20 @@
 # import os
 from azure.ai.projects import AIProjectClient
-from azure.identity import DefaultAzureCredential
+from azure.identity import ManagedIdentityCredential, DefaultAzureCredential
 
 KEY_VAULT_NAME = 'kv_to-be-replaced' # This will be replaced in the script
+MANAGED_IDENTITY_CLIENT_ID = 'mici_to-be-replaced'
 ai_project_endpoint = 'project_endpoint_to-be-replaced'  # This will be replaced in the script
 
 # Initialize the AI project client
+# project_client = AIProjectClient(
+#     endpoint= ai_project_endpoint,
+#     credential=DefaultAzureCredential(),
+# )
+
 project_client = AIProjectClient(
     endpoint= ai_project_endpoint,
-    credential=DefaultAzureCredential(),
+    credential=ManagedIdentityCredential(client_id=MANAGED_IDENTITY_CLIENT_ID),
 )
 
 instructions='''You are a helpful assistant'''
